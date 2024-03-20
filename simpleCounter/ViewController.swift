@@ -11,17 +11,21 @@ class ViewController: UIViewController {
     let counter = Counter()
     @IBAction func upButtonTapped(_ sender: Any) {
         counter.countUp()
-        self.countNumLabel.text = "\(counter.countNum)"
+        refreshNumLabel()
     }
     @IBAction func downButtonTapped(_ sender: Any) {
         counter.countDown()
-        self.countNumLabel.text = "\(counter.countNum)"
+        refreshNumLabel()
     }
     @IBOutlet weak var countNumLabel: UILabel!
     
+    private func refreshNumLabel() {
+        self.countNumLabel.text = "\(counter.countNum)"
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        refreshNumLabel()
         
         // Do any additional setup after loading the view.
     }
